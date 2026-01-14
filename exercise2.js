@@ -1,14 +1,30 @@
 // Create a BankAccount class with the following:
 // - Properties: accountNumber, balance
-// - Methods: 
+// - Methods:
 //   - deposit(amount): Adds the amount to the balance.
 //   - withdraw(amount): Deducts the amount from the balance if there are sufficient funds.
 // Add a static method compareAccounts(account1, account2) that compares two BankAccount objects and returns the account with the higher balance.
 
 class BankAccount {
-  // YOUR CODE HERE
-}
+  constructor(accountNumber, balance) {
+    this.accountNumber = accountNumber;
+    this.balance = balance;
+  }
 
+  static compareAccounts(account1, account2) {
+    return account1.balance > account2.balance ? account1 : account2;
+  }
+
+  deposit(amount) {
+    this.balance += amount;
+  }
+
+  withdraw(amount) {
+    if (this.balance >= amount) {
+      this.balance -= amount;
+    }
+  }
+}
 
 // TEST CASE / DRIVER CODE
 const account1 = new BankAccount(123456, 500);
